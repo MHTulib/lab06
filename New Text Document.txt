@@ -1,0 +1,60 @@
+package Lab06;
+
+public class Main {
+	public static void main(String[] args){
+		
+		Fraction f1= new Fraction();
+		/*f1.numerator=3;
+		f1.denominator=5;
+		System.out.println(f1.numerator+"/"+f1.denominator);*/
+		f1.setNumerator(3);
+		f1.setDenominator(0);
+		System.out.println(f1.getNumerator());
+		System.out.println(f1.toString());
+		System.out.println(f1);
+		
+	}
+
+}
+-------------------------------------------------------------------------
+
+package Lab06;
+
+public class Fraction {
+
+	private int numerator;
+	private int denominator;
+	
+	
+	public void setNumerator(int numerator) {
+		this.numerator=numerator;
+	}
+	public void setDenominator(int denominator) {
+		if (denominator==0) {
+		System.out.println("Denominator cant be 0.");
+		this.denominator=1;
+	}
+	else {
+		this.denominator=denominator;
+	}
+	
+	
+}
+	
+public int getNumerator() {
+	return this.numerator;
+}
+	
+public int getDenominator() {
+	return this.denominator;
+	
+}
+	
+public String toString() {
+	
+	return this.numerator+"/"+this.denominator;
+}
+	
+	
+}
+
