@@ -1,30 +1,17 @@
 package Lab06;
 
-public class Main {
-	public static void main(String[] args){
-		
-		Fraction f1= new Fraction();
-		/*f1.numerator=3;
-		f1.denominator=5;
-		System.out.println(f1.numerator+"/"+f1.denominator);*/
-		f1.setNumerator(3);
-		f1.setDenominator(0);
-		System.out.println(f1.getNumerator());
-		System.out.println(f1.toString());
-		System.out.println(f1);
-		
-	}
-
-}
--------------------------------------------------------------------------
-
-package Lab06;
-
 public class Fraction {
 
 	private int numerator;
 	private int denominator;
+	public Fraction() {
+		this.denominator=1;
+	}
 	
+	public Fraction(int numerator, int denominator) {
+		this.numerator=numerator;
+		this.setDenominator(denominator);
+	}
 	
 	public void setNumerator(int numerator) {
 		this.numerator=numerator;
@@ -44,6 +31,62 @@ public class Fraction {
 public int getNumerator() {
 	return this.numerator;
 }
+	
+public int getDenominator() {
+	return this.denominator;
+	
+}
+
+public Fraction multiply(Fraction other) {
+	int resultNumerator=this.numerator*other.numerator;
+	int resultDenominator=this.denominator*other.denominator;
+	
+	Fraction result= new Fraction(resultNumerator, resultDenominator);
+	return result;
+}
+public Fraction add(Fraction other) {
+	int resultNumerator=(this.numerator*other.denominator)+(other.numerator*this.denominator);
+	int resultDenominator=this.denominator*other.denominator ;
+	
+	Fraction result= new Fraction(resultNumerator, resultDenominator);
+	return result;
+}
+
+	
+public String toString() {
+	
+	return this.numerator+"/"+this.denominator;
+}
+	
+	
+}
+---------------------------------------------------------------------------
+package Lab06;
+
+public class Main {
+	public static void main(String[] args){
+		
+		Fraction f1= new Fraction();
+		/*f1.numerator=3;
+		f1.denominator=5;
+		System.out.println(f1.numerator+"/"+f1.denominator);*/
+		f1.setNumerator(3);
+		f1.setDenominator(5);
+		System.out.println(f1.getNumerator());
+		System.out.println(f1.toString());
+		System.out.println(f1);
+		
+		Fraction f2=new Fraction(5,7);
+		System.out.println(f2);
+		Fraction result=f1.multiply(f2);
+		System.out.println(result);
+		Fraction result2=f1.add(f2);
+		System.out.println(result2);
+		
+	}
+
+}
+
 	
 public int getDenominator() {
 	return this.denominator;
